@@ -1,9 +1,11 @@
+import { getByTestId } from "@testing-library/react";
 import { shallow } from "enzyme";
 import React from "react";
 
 describe("Basic rendering of filter option",()=>{
     it("Should render the filter option",()=>{
-        
+        const filter = shallow(<filter/>);
+        expect(getByTestId("filter")).toBeDefined();
     });
     it("Should have all option in the filter",()=>{
 

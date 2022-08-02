@@ -17,7 +17,7 @@ const ToDo = ({toDos,toDo,setToDos})=>{
     };
     return(
         <div className="todo">
-            <li data-testid="todo-item" className={`todo-item ${toDo.completed?"completed":""}`}>{toDo.text}</li>
+            <li data-testid="todo-item" className={`todo-item ${toDo && toDo.completed ? "completed" : "" }`}>{toDo ? toDo.text : ""}</li>
             <button data-testid="complete-button" onClick={completeHandler} className="complete-btn">
                 <i className="fas fa-check"></i>
             </button>

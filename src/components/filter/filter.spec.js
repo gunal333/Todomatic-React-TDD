@@ -1,20 +1,23 @@
-import { getByTestId } from "@testing-library/react";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import React from "react";
+import Filter from "./Filter";
 
 describe("Basic rendering of filter option",()=>{
     it("Should render the filter option",()=>{
-        const filter = shallow(<filter/>);
-        expect(getByTestId("filter")).toBeDefined();
+        const filter = render(<Filter/>);
+        expect(filter.getByTestId("filter")).toBeDefined();
     });
     it("Should have all option in the filter",()=>{
-
+        const allOption = render(<Filter/>);
+        expect(allOption.getByTestId("all")).toBeDefined();
     });
     it("Should have completed option in the filter",()=>{
-
+        const completedOption = render(<Filter/>);
+        expect(completedOption.getByTestId("completed")).toBeDefined;
     });
     it("Should have uncompleted option in the filter",()=>{
-
+        const unCompletedOption = render(<Filter/>);
+        expect(unCompletedOption.getByTestId("unCompleted")).toBeDefined;
     });
 });
 

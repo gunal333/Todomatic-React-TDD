@@ -28,22 +28,22 @@ describe("Basic rendering of Form", () => {
 
     it("Button should Not be Disabled when there is some text in input", () => {
         const {getByTestId} = render(<Form />);
-        fireEvent.change(getByTestId("input-field"), {target:{value: "aa"}});
+        fireEvent.change(getByTestId("input-field"), {target:{value: "Todomatic"}});
         expect(getByTestId("add-button")).not.toHaveAttribute("disabled");
     });
 
     it("Input Field should reflect what we type", () => {
         const {getByTestId} = render(<Form />);
-        fireEvent.change(getByTestId("input-field"), {target:{value: "Hello"}});
-        expect(getByTestId("input-field")).toHaveAttribute("value", "Hello");
+        fireEvent.change(getByTestId("input-field"), {target:{value: "Todomatic"}});
+        expect(getByTestId("input-field")).toHaveAttribute("value", "Todomatic");
     });
 });
 
 describe("Testing the Functionality of the Form", () => {
     it("Should add the given text in the Input to the TodoList", () => {
         const {getByTestId} = render(<App/>);
-        fireEvent.change(getByTestId("input-field"), {target:{value: "Hello"}});
+        fireEvent.change(getByTestId("input-field"), {target:{value: "React using TDD"}});
         fireEvent.click(getByTestId("add-button"));
-        expect(getByTestId("todo-item")).toHaveTextContent("Hello");
+        expect(getByTestId("todo-item")).toHaveTextContent("React using TDD");
     });
 });
